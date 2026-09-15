@@ -4,12 +4,12 @@
   "description": "Intercom manager",
   "scripts": {
     "test": "jest",
-    "prepare": "husky install",
     "lint": "eslint .",
     "pretty": "prettier --write --ignore-unknown .",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "dev": "nodemon",
     "start": "ts-node -T src/server.ts",
+    "build": "tsc --noEmit -p tsconfig.json",
     "postversion": "git push && git push --tags"
   },
   "license": "MIT",
