@@ -198,6 +198,7 @@ export class DbManagerCouchDb implements DbManager {
     // eslint-disable-next-line
     response.rows.forEach((row: any) => {
       if (
+        row.doc._id.indexOf('_design/') === -1 &&
         row.doc._id.toLowerCase().indexOf('counter') === -1 &&
         row.doc._id.toLowerCase().indexOf('session_') === -1 &&
         row.doc._id.toLowerCase().indexOf('preset_') === -1
@@ -221,6 +222,7 @@ export class DbManagerCouchDb implements DbManager {
     // Filter out counter, session, and preset documents
     const filteredRows = productions.rows.filter(
       (row: any) =>
+        row.id.indexOf('_design/') === -1 &&
         row.id.toLowerCase().indexOf('counter') === -1 &&
         row.id.toLowerCase().indexOf('session_') === -1 &&
         row.id.toLowerCase().indexOf('preset_') === -1
@@ -365,6 +367,7 @@ export class DbManagerCouchDb implements DbManager {
     // eslint-disable-next-line
     response.rows.forEach((row: any) => {
       if (
+        row.doc._id.indexOf('_design/') === -1 &&
         row.doc._id.toLowerCase().indexOf('counter') === -1 &&
         row.doc._id.toLowerCase().indexOf('session_') === -1
       )
@@ -388,6 +391,7 @@ export class DbManagerCouchDb implements DbManager {
     // Filter out counter and session documents
     const filteredRows = ingests.rows.filter(
       (row: any) =>
+        row.id.indexOf('_design/') === -1 &&
         row.id.toLowerCase().indexOf('counter') === -1 &&
         row.id.toLowerCase().indexOf('session_') === -1
     );
